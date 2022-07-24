@@ -1,0 +1,53 @@
+
+
+combobox menu
+{
+  @extend %menu-border;
+  border-bottom: 1px solid $c-black;
+  border-right:  1px solid $c-black;
+}
+
+menubar
+{
+  @extend %menu-border;
+
+  padding:        0px;
+  padding-top:    1px;
+  padding-bottom: 1px;
+}
+
+menu
+{
+  border-left:      .2px   solid $c-base;
+  border-top:       .2px   solid $c-base;
+  border-bottom:    .2px solid black;
+  border-right:     .2px solid black;
+
+  box-shadow: inset   .65px   .65px .1px #EAEAEA,
+              inset -.6px -.6px .4px #222;
+
+  background: #B3B3B3;
+
+  padding:       1px;
+  padding-right: 2px;
+
+  &:active, &:hover
+  {
+    background-color: $c-menuitem-selected-bg;
+    color:            $c-menuitem-selected-fg;
+  }
+}
+
+menuitem
+{
+  padding-left:   8px;
+  padding-right:  5px;
+  padding-top:    3px;
+  padding-bottom: 3px;
+
+  &:active, &:hover 
+  {
+    background-color: $c-menuitem-selected-bg;
+    color:            $c-menuitem-selected-fg;
+  }
+}

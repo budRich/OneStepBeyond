@@ -1,0 +1,38 @@
+list
+{
+  padding:          7px;
+  background-color: $c-lighter;
+
+  @extend %menu-border;
+
+  &:active
+  {
+    background-color: $c-listitem-selected-bg;
+  }
+}
+
+row
+{
+  background-color: $c-lighter;
+  padding:          5px;
+  border:           none;
+
+  &:selected
+  {
+    background-color: $c-listitem-selected-bg;
+    color:            $c-listitem-selected-fg;
+  }
+}
+
+treeview *:selected
+{
+  background-color: $c-listitem-selected-bg;
+  color: $c-listitem-selected-fg;
+}
+
+treeview button
+{
+  @extend %menu-border;
+  border-radius: 0;
+  background-color: $c-base;
+}

@@ -1,0 +1,58 @@
+%slider
+{
+  background-repeat:   no-repeat;
+  background-position: center center;
+  background-image:    url("../img/scrollbar_thumb.png");
+  background-color:    $c-base;
+  @extend %menu-border;
+}
+
+scale
+{
+  indicator
+  {
+    min-width:  1px;
+    min-height: 5px;
+    background: $c-black;
+  }
+
+  trough
+  {
+    margin:           1px;
+    background-color: $c-darker;
+
+    @extend %scale-border;
+  }
+
+  &.horizontal
+  {
+    slider
+    {
+      min-width:  29px;
+      min-height: 12px;
+      @extend %slider;
+    }
+
+    trough
+    {
+      padding-left:  15px;
+      padding-right: 15px;
+    }
+  }
+
+  &.vertical
+  {
+    trough
+    {
+      padding-top:    15px;
+      padding-bottom: 15px;
+    }
+
+    slider
+    {
+      min-width:  12px;
+      min-height: 29px;
+      @extend %slider;
+    }
+  } 
+}

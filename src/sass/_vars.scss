@@ -1,0 +1,41 @@
+$c-babyblue:   #B5D8F6;
+$c-white:      #ffffff;
+$c-lighter:    #d8d8d8;
+$c-base:       #A8A8A8;
+$c-darker:     #787878;
+$c-black:      #000000;
+$c-scale:      #4b6983;
+$c-tooltip-bg: #FCFFDF;
+
+/**********************************************/
+/* Derived colors */
+/**********************************************/
+
+$c-headerbar-bg: $c-black;
+$c-button-selected-bg: $c-darker;
+$c-text-selected-bg: $c-darker;
+$c-text-selected-fg: $c-lighter;
+$c-menuitem-selected-bg: $c-lighter;
+$c-menuitem-selected-fg: $c-black;
+$c-listitem-selected-bg: $c-darker;
+$c-listitem-selected-fg: $c-lighter;
+$c-text-view-bg: $c-lighter; // hack for gnome terminal 27 sep 2020
+
+// TODO: check shade working here...
+$c-inset-lighter:  shade($c-base,-10);
+$c-outset-lighter: shade($c-base,30);
+$c-inset-darker:   shade($c-base,-50);
+
+/**********************************************/
+/* Color names curiously hardcoded in some gnome applications */
+/**********************************************/
+
+@define-color theme_base_color #{"" +$c-lighter};
+@define-color theme_text_color #{"" +$c-black};
+
+@define-color theme_bg_color #{"" +$c-lighter};
+@define-color theme_fg_color #{"" +$c-black};
+@define-color theme_selected_bg_color #{"" +$c-listitem-selected-bg}; /* list select */
+@define-color theme_selected_fg_color #{"" +$c-listitem-selected-fg};
+@define-color theme_tooltip_bg_color #{"" +$c-tooltip-bg};
+@define-color theme_tooltip_fg_color #{"" +$c-black};

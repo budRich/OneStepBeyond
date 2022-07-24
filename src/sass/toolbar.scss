@@ -1,0 +1,46 @@
+/* nota bene: if one experiences wiggle-worm behavior with the statusbar fields, experiment with increasing the 'min-height' value: */
+statusbar
+{
+  min-height: 24px;
+  frame
+  {
+    padding: 0px;
+    border: none;
+  }
+
+}
+
+
+toolbar
+{
+  @extend %menu-border;
+  padding:       1px;
+
+  button
+  {
+    border: 1px solid $c-base;
+
+    &:hover
+    {
+      @extend %menu-border;
+    }
+
+    &:checked,
+    &:active
+    {
+      border-left:      1.3px solid  $c-black;
+      border-top:       1.3px solid  $c-black;
+      border-right:     1px solid $c-inset-lighter;
+      border-bottom:    1px solid $c-inset-lighter;
+      background-color: $c-button-selected-bg;
+
+      &:hover
+      {
+        background-color: $c-base;
+      }
+    }
+  }
+}
+
+
+

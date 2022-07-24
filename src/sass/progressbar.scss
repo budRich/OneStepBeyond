@@ -1,0 +1,67 @@
+progressbar
+{
+  color:            $c-black;
+  background-color: $c-base;
+
+  &.vertical
+  {
+    text
+    {
+      margin-right: 25px;
+    }
+
+    trough
+    {
+      min-width:        20px;
+      background-color: $c-darker;
+      color:            $c-black;
+
+      @extend %scale-border;
+    }
+
+    progress
+    {
+      min-width:        16px;
+      background-color: $c-scale;
+
+      @extend %progress-border;
+    }
+  }
+
+  &.horizontal 
+  {
+    trough 
+    {
+      min-height:       18px;
+      background-color: $c-darker;
+      color:            $c-black;
+
+      @extend %scale-border;
+    }
+
+    progress
+    {
+      min-height:       14px;
+      background-color: $c-scale;
+      @extend %progress-border;
+    }
+  }
+}
+
+/* progressbars are different in GtkTreeView (monitor) */
+treeview.view.progressbar
+{
+  min-height:       14px;
+  background-color: $c-scale;
+  @extend %progress-border;
+}
+
+treeview.view.trough,
+treeview.view.trough:selected
+{
+  min-height:       18px;
+  background-color: $c-darker;
+  color:            $c-white;
+
+  @extend %scale-border;
+}

@@ -1,0 +1,49 @@
+
+// avoid borders on the desktop when managed by nautilus
+nautilus-desktop-window * 
+{
+  border: none;
+}
+
+// floating-bar in nautilus
+.floating-bar 
+{
+  background-color: $c-darker;
+  color:            $c-white;
+}
+
+// nautilus sidebar icons
+.sidebar-icon
+{
+  padding-right: 2px;
+}
+
+// selections in firefox use fix color names !
+// fix background selected item unfocused in hugin: to test for consistency
+#MozillaGtkWidget *:selected:focus
+{
+  background-color: $c-text-selected-bg;
+  color:            $c-text-selected-fg;
+}
+
+// background and selection in icon view in caja (mrnhmath)
+.caja-notebook
+{
+  .view
+  {
+    background-color: $c-base;
+
+    &:selected,
+    &:selected:focus
+    {
+      background-color: $c-darker;
+    }
+  }
+
+  .rubberband
+  {
+    background-color: transparent;
+  }
+  
+}
+

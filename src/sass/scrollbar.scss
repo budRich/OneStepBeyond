@@ -1,0 +1,176 @@
+%scrollbar-button
+{
+  min-height:     4px;
+  min-width:      7px;
+
+  margin-left:    1px;
+  margin-right:   1px;
+  margin-top:     0px;
+  margin-bottom:  0px;
+
+  padding-left:   2px;
+  padding-right:  3px;
+  padding-top:    3px;
+  padding-bottom: 5px;
+
+  @extend %menu-border;
+
+  &:active
+  {
+    background-color: $c-darker;
+    @extend %scrollbar-border;
+  }
+
+  &:disabled
+  {
+    min-height:     5px;
+
+    padding-left:   2px;
+    padding-right:  2px;
+    padding-top:    3px;
+    padding-bottom: 4px;
+  }
+}
+
+%scrollbar-button-horizontal
+{
+  @extend %scrollbar-button;
+
+  min-height:     7px;
+  min-width:      4px;
+
+  margin-left:    0px;
+  margin-right:   0px;
+  margin-top:     1px;
+  margin-bottom:  1px;
+
+  padding-left:   3px;
+  padding-right:  5px;
+  padding-top:    2px;
+  padding-bottom: 3px;
+
+  &:disabled
+  {
+    min-width:      6px;
+
+    padding-left:   3px;
+    padding-right:  3px;
+    padding-top:    2px;
+    padding-bottom: 2px;
+  }
+}
+
+
+scrollbar
+{
+  trough
+  {
+    background-color: $c-darker;
+    min-width: 14px;
+    min-height: 14px;
+    @extend %scale-border;
+  }
+
+  slider,
+  slider:hover 
+  {
+    background-color: $c-base;
+    min-width: 12px;
+    min-height: 12px;
+    
+    @extend %menu-border;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("../img/scrollbar_thumb.png");
+  }
+
+  &.vertical
+  {
+    slider
+    {
+      min-height: 30px;
+    }
+
+    button.down
+    {
+
+      -gtk-icon-source: url("../img/arrow-down.png");
+
+      @extend %scrollbar-button;
+
+      // TODO: investigate why different than button.up
+      padding-top:    4px;
+      padding-bottom: 4px;
+
+      &:active
+      {
+        -gtk-icon-source: url("../img/arrow-down.png");
+      }
+
+      &:disabled
+      {
+        -gtk-icon-source: url("../img/arrow-down-disabled.png");
+      }
+    }
+
+    button.up {
+
+      -gtk-icon-source: url("../img/arrow-up.png");
+      @extend %scrollbar-button;
+
+      &:active
+      {
+        -gtk-icon-source: url("../img/arrow-up.png");
+      }
+
+      &:disabled
+      {
+        -gtk-icon-source: url("../img/arrow-up-disabled.png");
+      }
+    }
+  }
+
+  &.horizontal
+  {
+    slider
+    {
+      min-width: 30px;
+    }
+
+    button.up
+    {
+      @extend %scrollbar-button-horizontal;
+      -gtk-icon-source: url("../img/arrow-left.png");
+
+      &:active
+      {
+        -gtk-icon-source: url("../img/arrow-left.png");
+      }
+
+      &:disabled
+      {
+        -gtk-icon-source: url("../img/arrow-left-disabled.png");
+      }
+    }
+
+    button.down
+    {
+      @extend %scrollbar-button-horizontal;
+      padding-left:  4px;
+      padding-right: 4px;
+
+      -gtk-icon-source: url("../img/arrow-right.png");
+
+      &:active
+      {
+        -gtk-icon-source: url("../img/arrow-right.png");
+      }
+
+      &:disabled
+      {
+        -gtk-icon-source: url("../img/arrow-right-disabled.png");
+      }
+    }
+  }
+}

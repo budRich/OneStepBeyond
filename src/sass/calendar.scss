@@ -1,0 +1,16 @@
+calendar
+{
+  background-color: $c-lighter;
+  color:            $c-black;
+
+  &:selected
+  {
+    background-color: $c-listitem-selected-bg;
+    color:            $c-listitem-selected-fg;
+  }
+
+  &:indeterminate
+  {
+    color: $c-inset-lighter;
+  }
+}

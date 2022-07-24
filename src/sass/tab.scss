@@ -1,0 +1,255 @@
+
+frame 
+{
+  background-color: $c-base;
+  padding:          5px;
+
+  @extend %frame-border;
+
+
+}
+
+
+$positions: ("top": bottom, "bottom": top, "left": right, "right": left);
+
+$tab-active-hilite:   #EAEAEA;
+$tab-inactive-hilite: #AAA;
+$tab-downlite:        #8f8f8f;
+
+notebook {
+  padding: 0;
+
+  &.frame 
+  {
+    margin:             -1px;
+
+    border-left:      .6px   solid $tab-active-hilite;
+    border-top:       .6px   solid $tab-active-hilite;
+    border-bottom:    .6px solid black;
+    border-right:     .6px solid black;
+
+    > header 
+    {
+      margin:            -1px;
+
+      @each $position, $opposite in $positions
+      {
+        &.#{$position}
+        {
+          margin-#{$opposite}: 0;
+
+          @if ($position == top or $position == bottom) {
+            padding-left:  0;
+            padding-right: 0;
+          } @else {
+            padding-top:   0px;
+            padding-#{$opposite}: 0;
+          }
+        }
+      }
+    }
+  }
+
+  > header
+  {
+    padding-top:        2px;
+    background-color: $c-base;
+
+    @each $position, $opposite in $positions
+    {
+      &.#{$position}
+      {
+        @if $position == bottom {
+          padding-top: 0;
+        }
+
+        > tabs > tab
+        {
+          margin-#{$position}:        2px;
+
+          border-top:        .6px   solid $tab-active-hilite;
+          border-left:       .6px   solid $tab-active-hilite;
+          
+          border-bottom:      .6px   solid black;
+          border-right:       .6px   solid black;
+
+          border-#{$opposite}:              none;
+          margin-#{$opposite}:              1px;
+
+
+
+          @if $position == top or $position == bottom {
+            border-#{$opposite}-left-radius:  0;
+            border-#{$opposite}-right-radius: 0;
+
+          } @else {
+            border-top-#{$opposite}-radius:  0;
+            border-bottom-#{$opposite}-radius: 0;
+
+          }
+
+          
+          
+          @if $position == top {
+            box-shadow: inset -.6px   0px $tab-downlite,
+                        inset  .6px  .6px $tab-inactive-hilite;
+          } @else if $position == bottom {
+            box-shadow: inset -.6px   0px $tab-downlite,
+                        inset   0px -.6px $tab-downlite,
+                        inset  .6px   0px $tab-inactive-hilite;
+          } @else if $position == left {
+            box-shadow: inset   0px -.6px $tab-downlite, 
+                        inset  .6px   0px $tab-inactive-hilite,
+                        inset   0px  .6px $tab-inactive-hilite;
+          } @else if $position == right {
+            box-shadow: inset -.6px   0px $tab-downlite,
+                        inset   0px -.6px $tab-downlite,
+                        inset   0px  .6px $tab-inactive-hilite;
+          }
+
+          background-color:        gtkshade($c-base, 0.9);
+          &:checked
+          {
+            background-color:        $c-base;
+            margin-#{$position}:     0;
+            margin-#{$opposite}:    -1px;
+
+            @if $position == top or $position == bottom {
+              
+              border-#{$opposite}-left-radius:  0px;
+              border-#{$opposite}-right-radius: 0px;
+              border-#{$position}-left-radius:  6px;
+              border-#{$position}-right-radius: 6px;
+            } @else {
+              border-top-#{$opposite}-radius:    0px;
+              border-bottom-#{$opposite}-radius: 0px;
+              border-top-#{$position}-radius:    6px;
+              border-bottom-#{$position}-radius: 6px;
+              
+            }
+
+            @if $position == top {
+              box-shadow: inset   2px  2px 0 gtkshade($tab-active-hilite, .9),
+                          inset  -2px  0px 0 $tab-downlite;
+              border-left:       .6px  solid gtkshade($tab-active-hilite, .8);
+              border-top:        .6px  solid gtkshade($tab-active-hilite, .8);
+            } @else if $position == bottom {
+
+              box-shadow: inset   2px  0px   gtkshade($tab-active-hilite, .9),
+                          inset   -2px  -2px   $tab-downlite;
+              border-left:       .6px  solid gtkshade($tab-active-hilite, .8);
+            } @else if $position == left {
+              box-shadow: inset   2px   2px   gtkshade($tab-active-hilite, .9),
+                          inset   0px  -2px   $tab-downlite;
+              border-left:       .6px  solid  gtkshade($tab-active-hilite, .8);
+              border-top:        .6px  solid  gtkshade($tab-active-hilite, .8);
+            } @else if $position == right {
+              box-shadow: inset   0px   2px   gtkshade($tab-active-hilite, .9),
+                          inset   -2px  -2px   $tab-downlite;
+              border-top:        .6px  solid  gtkshade($tab-active-hilite, .8);
+            }
+          }
+        }
+      }
+    }
+    
+  }
+
+  > stack:not(:only-child)
+  {
+      background-color: $c-base;
+      border-left:      .6px   solid $tab-active-hilite;
+      border-top:       .6px   solid $tab-active-hilite;
+      border-bottom:    .6px   solid black;
+      border-right:     .6px   solid black;
+      // box-shadow: inset   .6px   .6px  $tab-active-hilite,
+      //             inset  -.6px  -.6px  #222;
+
+      box-shadow: inset -.6px -.6px $tab-downlite, /* r */
+                  inset  .6px  .6px $tab-active-hilite; /* t */
+  }
+
+
+  tab
+  {
+    padding:            3px 10px;
+    border-width:       1px;
+    // border-style:       solid;
+    border-radius:      4px;
+    // border-color:     $c-base;
+    color:            shade($c-black,20);
+    background-color: shade($c-base,-5);
+
+    &:checked
+    {
+      // border-color:     $c-base;
+      background-color: $c-base;
+      color: black;
+    }
+  }
+
+
+  > tabs > arrow
+  {
+    color: #000000;
+
+    &:hover,
+    &:active
+    {
+      color: black;
+    }
+
+    &:disabled
+    {
+      color: #848484;
+    }
+  }
+
+  > header.top > tabs > arrow.up,
+  > header.bottom > tabs > arrow.up 
+  {
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+    &:last-child 
+    {
+      margin-left: 2px;
+    }
+  }
+
+  > header.top > tabs > arrow.down,
+  > header.bottom > tabs > arrow.down 
+  {
+    -gtk-icon-source: -gtk-icontheme("pan-start-symbolic");
+    &:first-child 
+    {
+      margin-left: 2px;
+    }
+  }
+
+  > header.left > tabs > arrow.up,
+  > header.right > tabs > arrow.up 
+  {
+    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+    &:last-child 
+    {
+      margin-left: 2px;
+    }
+  }
+
+  > header.left > tabs > arrow.down,
+  > header.right > tabs > arrow.down 
+  {
+    -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
+    &:first-child 
+    {
+      margin-left: 2px;
+    }
+  }
+
+
+}
+
+.nautilus-window notebook > stack:not(:only-child) {
+  box-shadow: none;
+  background-color: #ffffff;
+}
+

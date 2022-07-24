@@ -1,0 +1,62 @@
+headerbar, messagedialog .titlebar
+{
+  background-color: $c-base;
+  color:            $c-black;
+  border-radius:    0;
+}
+
+.titlebar .title
+{
+  color:       $c-black;
+
+  &:backdrop
+  {
+    color: $c-base;
+  }
+}
+
+.pathbar
+{ 
+  color:       $c-black;
+}
+
+decoration
+{
+  border-radius:    0;
+  background-color: $c-base;
+  margin:           3px;
+  box-shadow:       none;
+}
+
+%headerbar-button-base
+{
+  // border:           none;
+  // background-color: transparent; /* fond de bouton de headerbar */
+  color:            $c-black;    /* couleur int bouton de barre */
+}
+
+headerbar button 
+{
+  @extend %headerbar-button-base;
+
+  &:selected, &:hover, &:active:hover
+  {
+    @extend %headerbar-button-base;
+  }
+
+  &:checked, &:checked:hover
+  {
+    @extend %headerbar-button-base;
+    font-weight: bold;
+  }
+
+  &:disabled:backdrop
+  {
+    color: $c-darker;
+  }
+}
+
+headerbar .close.titlebutton:active:hover
+{
+  background-color: $c-text-selected-bg;
+}

@@ -1,0 +1,21 @@
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) 
+{
+  @if $percentage < 0 {
+    @return mix(black, $color, $percentage * -1);
+  } @else {
+    @return mix(white, $color, $percentage);
+  }
+  
+}
+
+// inspired from shade() function at https://gitlab.gnome.org/GNOME/gtk/-/blob/master/gtk/gtkhsla.c#L168-185
+// https://github.com/B00merang-Project/Azurra_framework/blob/master/Azurra/_functions.scss
+@function gtkshade($color, $multiplier) {
+  $new: hsla(hue($color), saturation($color) * $multiplier, lightness($color) * $multiplier, alpha($color));
+  @return $new;
+}

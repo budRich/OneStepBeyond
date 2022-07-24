@@ -1,0 +1,91 @@
+button {
+  &.combo {
+    // makes combo buttons, with arrows
+    // same size as normal buttons..
+    padding: 1px 3px;
+  }
+
+  color: #000000;
+  border-color: #616161;
+  background-color: #bbbbbb;
+
+  padding: 3px 3px;
+  border-style: solid;
+  border-width: 0.6px;
+  border-radius: 3px;
+
+  -gtk-outline-radius: 5px;
+
+  box-shadow: inset 1.6px 1.6px #eaeaea, inset 1px 1px #bbbbbb,
+    inset -2px -2px #bbbbbb, inset -1px -1px #8f8f8f;
+  outline-offset: 2px;
+  outline-style: solid;
+  outline-color: rgba(0, 0, 0, 0.5);
+
+  // background-color: $c-base;
+  // color:            $c-black;
+  // padding:          3px;
+  // @extend %menu-border;
+
+  &:active,
+  &:checked {
+    background-color: $c-button-selected-bg;
+    @extend %button-border;
+
+    background-color: #c6c6c6;
+    box-shadow: inset -2px -2px #e6e6e6, inset -1px -1px #c6c6c6,
+      inset 2px 2px #bbbbbb, inset 1px 1px #8f8f8f;
+    &:disabled {
+      color: #0b0b0b;
+      box-shadow: none;
+      border-color: #848484;
+    }
+  }
+
+  &:active:hover {
+    background-color: #c6c6c6;
+  }
+
+  &:checked:hover {
+    background-color: shade(#c6c6c6, -10);
+    // color: $c-lighter;
+  }
+
+  &:disabled {
+    color: $c-darker;
+    label {
+      color: $c-darker;
+    }
+    // background-color: $c-base;
+  }
+
+  &.flat {
+    border-color: transparent;
+    border-radius: 3px;
+    color: #000000;
+    background-color: transparent;
+    box-shadow: none;
+
+    &:hover {
+      border-color: #616161;
+      color: #000000;
+      background-color: #dcdcdc;
+      -gtk-outline-radius: 3px;
+      box-shadow: inset 2px 2px white, inset 1px 1px #dcdcdc,
+        inset -2px -2px #bbbbbb, inset -1px -1px #8f8f8f;
+    }
+
+    &:active,
+    &:checked {
+      background-color: #c6c6c6;
+      box-shadow: inset -2px -2px #e6e6e6, inset -1px -1px #c6c6c6,
+        inset 2px 2px #bbbbbb, inset 1px 1px #8f8f8f;
+    }
+
+    &:disabled {
+      border-color: transparent;
+      color: rgba(0, 0, 0, 0.8);
+      background-color: transparent;
+    }
+  }
+}

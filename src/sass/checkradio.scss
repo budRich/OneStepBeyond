@@ -1,0 +1,139 @@
+checkbutton, radiobutton
+{
+  color: $c-black;
+  background-color: $c-base;
+
+  &:disabled
+  {
+    color: $c-darker;
+  }
+}
+
+%checkradio-base
+{
+  min-width:  13px;
+  min-height: 13px;
+
+  padding: 0px;
+  border:  none;
+  margin:  5px;
+
+  &:disabled
+  {
+    min-width:  11px;
+    min-height: 11px;
+
+    &:checked
+    {
+      min-width:  11px;
+      min-height: 11px;
+    }
+  }
+}
+
+radio {
+  @extend %checkradio-base;
+  -gtk-icon-source: url("../img/radio-unchecked.png");
+
+  &:checked
+  {
+    -gtk-icon-source: url("../img/radio-checked.png");
+
+    min-width:  13px;
+    min-height: 13px;
+  }
+
+  &:disabled
+  {
+    -gtk-icon-source: url("../img/radio-disabled-unchecked.png");
+
+    &:checked
+    {
+      -gtk-icon-source: url("../img/radio-disabled-checked.png");
+    }
+  }
+}
+
+check {
+  @extend %checkradio-base;
+  -gtk-icon-source: url("../img/check-unchecked.png");
+
+  &:checked
+  {
+    -gtk-icon-source: url("../img/check-checked.png");
+  }
+
+  &:disabled
+  {
+    -gtk-icon-source: url("../img/check-disabled-unchecked.png");
+
+    &:checked
+    {
+      -gtk-icon-source: url("../img/check-disabled-checked.png");
+    }
+  }
+}
+
+%checkradio-menuitem
+{
+  min-width:  8px;
+  min-height: 7px;
+  -gtk-icon-source: url("../img/menuitem-transparent.png");
+}
+
+menuitem check
+{
+  @extend %checkradio-menuitem;
+
+  &:checked
+  {
+    -gtk-icon-source: url("../img/menuitem-check-checked.png");
+  }
+
+  &:disabled:checked
+  {
+    -gtk-icon-source: url("../img/menuitem-check-checked-disabled.png");
+  }
+}
+
+menuitem radio
+{
+  @extend %checkradio-menuitem;
+
+  &:checked
+  {
+    -gtk-icon-source: url("../img/menuitem-radio-checked.png");
+
+    min-width:  5px;
+    min-height: 5px;
+  }
+
+  &:disabled:checked
+  {
+    -gtk-icon-source: url("../img/menuitem-radio-checked-disabled.png");
+
+    min-width:  5px;
+    min-height: 5px;
+  }
+}
+
+/* handbrake/defaults audio; tweaktools/bureau*/
+list row checkbutton,
+list row radiobutton
+{
+  background-color: transparent;
+  color:            $c-black;
+}
+
+/* handbrake/defaults audio; tweaktools/bureau */
+list row checkbutton label:disabled,
+list row radiobutton label:disabled,
+list row check:disabled,
+list row radio:disabled
+{
+  -gtk-icon-source: url("../img/radio-disabled-unchecked.png");
+  background-color: transparent;
+  color:            $c-darker;
+  min-width:        11px;
+  min-height:       11px;
+}

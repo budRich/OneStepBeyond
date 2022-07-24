@@ -1,0 +1,37 @@
+switch
+{
+  font-weight: bold;
+  background-color: $c-base;
+  color: $c-black;
+
+  @extend %switch-border;
+
+  &:checked
+  {
+    background-color: $c-scale;
+  }
+
+  &:disabled {
+    background-color: $c-darker;
+    color:            $c-base;
+
+    slider
+    {
+      background-color: $c-darker;
+      border-left:      1px solid $c-base;
+      border-top:       1px solid $c-base;
+    }
+  }
+
+  slider
+  {
+    background-image: url("../img/scrollbar_thumb.png");
+
+    background-color:    $c-base;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    padding:             1px;
+    
+    @extend %menu-border;
+  }
+}

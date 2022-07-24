@@ -1,0 +1,33 @@
+// https://gottcode.wordpress.com/2017/10/21/theming-whisker-menu-redux/
+// https://docs.xfce.org/xfce/xfce4-panel/4.14/theming
+
+// :active, :hover :disabled, :selected, :focus, :indeterminate, :checked
+#whiskermenu 
+{
+  &-window
+  {
+    treeview
+    {
+      background-color: $c-babyblue;
+      color: #111;
+      padding: 3px;
+
+      > *:selected
+      {
+        background-color: #808080;
+        color: #fff;
+      }
+    }
+  }
+
+  &-button
+  {
+    border: none;
+  }
+}
+
+#clock-button
+{
+  border: none;
+  box-shadow: none;
+}

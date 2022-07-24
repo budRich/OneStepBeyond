@@ -1,0 +1,62 @@
+separator.vertical
+{
+  margin:       0px;
+  padding:      0px;
+  border-left:  1px solid $c-darker;
+  border-right: 1px solid $c-lighter;
+}
+
+separator.horizontal
+{
+  margin:        0px;
+  padding:       0px;
+  border-top:    1px solid $c-darker;
+  border-bottom: 1px solid $c-lighter;
+}
+
+toolbar separator
+{
+  margin:        5px;
+  margin-top:    7px;
+  margin-bottom: 7px;
+  border-left:   1px solid $c-inset-darker;
+  border-right:  1px solid $c-lighter;
+}
+
+menu separator
+{
+  margin:        2px 5px;
+  padding:       0px;
+  border-top:    1px solid $c-darker;
+  border-bottom: 1px solid $c-lighter;
+}
+
+%paned-separator
+{
+  background-position: center center;
+  background-repeat:   no-repeat;
+
+  border:              none;
+  padding:             0px;
+}
+
+paned.vertical separator
+{
+  background-image:    url("../img/separator_horizontal.png");
+  @extend %paned-separator;
+}
+
+paned.horizontal separator
+{
+  background-image:    url("../img/separator_vertical.png");
+  @extend %paned-separator;
+}
+
+/* separator in nautilus side panel */
+paned list separator.horizontal
+{
+  min-height:       1px;
+  background-image: none;
+  border:           none;
+  border-top:       1px solid $c-base;
+}

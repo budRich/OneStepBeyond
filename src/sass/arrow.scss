@@ -1,0 +1,53 @@
+combobox arrow
+{  
+  background-image:    url("../img/combobox-arrow-down.png");
+  background-repeat:   no-repeat;
+  background-position: center center;
+
+  min-height:          19px;
+  min-width:           19px;
+
+  &:disabled 
+  {  
+    background-image:  url("../img/combobox-arrow-down-disabled.png");
+  }
+}
+
+menuitem arrow {
+  -gtk-icon-source: url("../img/menuitem-arrow-right.png");
+  min-height:       8px;
+  min-width:        8px;
+  margin-left:      15px; /* brasero */
+
+  &:disabled
+  {
+    -gtk-icon-source: url("../img/menuitem-arrow-right-disabled.png");
+  }
+}
+
+expander arrow {
+  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+  -gtk-icon-transform: rotate(-90deg);
+
+  color: $c-black;
+
+  min-width:  16px;
+  min-height: 16px;
+
+  &:checked
+  {
+    -gtk-icon-transform: unset;
+  }
+}
+
+popover arrow.right {
+  -gtk-icon-source: url("../img/menuitem-arrow-right.png");
+  min-height:       15px;
+  min-width:        8px;
+}
+
+popover arrow.left {
+  -gtk-icon-source: url("../img/menuitem-arrow-left.png");
+  min-height:       15px;
+  min-width:        8px;
+}

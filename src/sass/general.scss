@@ -1,0 +1,19 @@
+*
+{
+  -GtkScrollbar-has-backward-stepper: false;
+  -GtkScrollbar-has-forward-stepper: true;
+  -GtkScrollbar-has-secondary-forward-stepper: false;
+  -GtkScrollbar-has-secondary-backward-stepper: true;
+
+  // -GtkWidget-window-dragging: true;
+  // seems to break things in gnumeric: Ingo S.
+
+  // background-color: inherit;
+  // color: inherit;
+}
+
+.background
+{
+  background-color: $c-base;
+  color:            $c-black;
+}

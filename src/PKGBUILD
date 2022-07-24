@@ -1,0 +1,33 @@
+# Maintainer: budRich
+
+pkgname=gtk-theme-onestepbeyond
+_pkgname=OneStepBeyond
+_thname=OneStepBack
+pkgver=0.994
+pkgrel=1
+pkgdesc="Fork of gtk-theme-onestepback, with modified Gtk3 theme"
+arch=('any')
+license=('GPL3')
+makedepends=(sassc)
+url="http://www.vide.memoire.free.fr/perso/OneStepBack"
+fork_url="file://${HOME}/.themes/${_pkgname}/gtk-3.0"
+source=(
+        "gtk-theme-${_thname,,}-$pkgver.zip::$url/$_thname-v$pkgver.zip"
+        "${_pkgname}::git+$fork_url"
+        )
+sha256sums=(
+  '9231a21a8e1b17599624f9da3efda57fbac61bfb809ed1caeb5987ea5709e9ee'
+  'SKIP'
+)
+
+prepare() {
+  cd "$srcdir/$_pkgname"
+  make THEME_DIR="$srcdir/$_thname" install
+}
+
+package() {
+  cd "$srcdir/$_thname"
+  install -D -m644 LICENSE "$pkgdir"/usr/share/licenses/"$pkgname"/LICENSE
+  find index.theme gtk-* img -type f -print0 | \
+    xargs -0 -I{} -n1 install -D -m644 "{}" "$pkgdir"/usr/share/themes/"$_pkgname"/"{}"
+}

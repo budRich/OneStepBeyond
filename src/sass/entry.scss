@@ -1,0 +1,61 @@
+entry
+{
+  background-color: $c-lighter;
+  color: $c-black;
+  padding: 2px;
+
+  @extend %scrollbar-border;
+
+  &:disabled
+  {
+    background-color: $c-darker;
+    color: $c-black;
+  }
+}
+
+label:disabled
+{
+  color: gtkshade($c-base,.5);
+}
+
+selection
+{
+  background-color: $c-text-selected-bg;
+  color: $c-text-selected-fg;
+}
+
+treeview
+{
+  background-color: $c-lighter;
+  selection
+  {
+    @extend selection;
+  }
+}
+
+textview
+{
+  background-color: $c-lighter;
+  color: $c-black;
+}
+
+iconview
+{
+  background-color: $c-lighter;
+  color:            $c-black;
+
+  *:selected,
+  *:active
+  {
+    background-color: $c-text-selected-bg;
+    color:            $c-text-selected-fg;
+  }
+}
+
+grid *:selected,
+grid *:active
+{
+  background-color: $c-text-selected-bg;
+  color: $c-text-selected-fg;
+}
+

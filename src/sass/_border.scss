@@ -1,0 +1,61 @@
+%menu-border
+{
+  border-left:      .2px   solid $c-base;
+  border-top:       .2px   solid $c-base;
+  border-bottom:    .2px solid black;
+  border-right:     .2px solid black;
+
+  box-shadow: inset   .65px   .65px .1px #EAEAEA,
+              inset -.6px -.6px .4px #222;
+}
+
+%scale-border
+{
+  border-left:      1px   solid $c-inset-darker;
+  border-top:       1px   solid $c-inset-darker;
+  border-right:     1px   solid $c-base;
+  border-bottom:    1px   solid $c-base;
+}
+
+%button-border
+{
+  border-left:      .2px solid $c-black;
+  border-top:       .2px solid $c-black;
+  border-right:     .2px solid $c-base;
+  border-bottom:    .2px solid $c-base;
+
+  box-shadow: inset -.65px -.65px .1px #EAEAEA,
+              inset  .6px  .6px .4px #222;
+}
+
+%progress-border
+{
+  border-left:      1px   solid shade($c-scale,30);
+  border-top:       1px   solid shade($c-scale,30);
+  border-right:     1.3px solid $c-black;
+  border-bottom:    1.3px solid $c-black;
+}
+
+%scrollbar-border
+{
+  border-left:     1.3px solid $c-black;
+  border-top:      1.3px solid $c-black;
+  border-right:    1px   solid $c-inset-lighter;
+  border-bottom:   1px   solid $c-inset-lighter;
+}
+
+%frame-border
+{
+  border-left:     1.3px solid  $c-black;
+  border-top:      1px   solid  $c-black;
+  border-right:    1px   solid  $c-outset-lighter;
+  border-bottom:   1px   solid  $c-outset-lighter;
+}
+
+%switch-border
+{
+  border-left:     1.3px solid $c-black;
+  border-top:      1.3px solid $c-black;
+  border-right:    1.3px solid $c-lighter;
+  border-bottom:   1.3px solid $c-lighter;
+}
