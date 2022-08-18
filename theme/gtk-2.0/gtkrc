@@ -172,8 +172,11 @@ style "progressbar" {
 
     bg[PRELIGHT]        = @scale_color # XXX
     fg[PRELIGHT]        = @lighter_color
+    GtkProgressBar ::yspacing        = 0
+    
 
 }
+
 
 style "menuitem" {
 
