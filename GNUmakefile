@@ -33,7 +33,7 @@ $(gtk3_css): $(sass_files)
 clean:
 	rm -f $(gtk3_css)
 
-$(installed_files): $(install_at)/%: theme/%
+$(installed_files): $(install_at)/%: theme/% | $(DESTDIR)$(SHARE_DIR)/
 	install -D -m644 $< $@
 
 install: all $(installed_files)
@@ -43,10 +43,15 @@ uninstall:
 
 # watch, restore and reload only works if xfconfd is running
 # and theme/gtk-3.0/css.gtk is "active" (install-dev)
-.Phony: watch restore reload install-dev
+.Phony: watch restore reload install-dev uninstall-dev
 
-install-dev:
+uninstall-dev: uninstall
+
+install-dev: $(DESTDIR)$(SHARE_DIR)/
 	ln -fs "$(shell realpath theme)" "$(install_at)"
+
+$(DESTDIR)$(SHARE_DIR)/:
+	mkdir -p $@
 
 watch:
 	@while read -r ; do
