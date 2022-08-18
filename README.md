@@ -12,7 +12,6 @@ there are some convenience targets in the makefile
 that automatically reloads the theme and stuff, for
 that to work you need `xfconfd` running (Xfce4)  
 
-
 ```shell
 make PREFIX=~/.local install
 # install theme at ~/.local/share/themes/OneStepBeyond
@@ -29,6 +28,14 @@ make restore
 # use original OneStepBack GTK3 theme , autoreload
 # (must be symlinked)
 ```
+
+### known issues
+
+I have noticed that at least Xfce doesn't seem to be
+able to apply the theme for GTK2 applications if the theme
+is installed in `~/.local/share/themes`, however `~/.themes`
+and `/usr/share/themes` work fine.
+
 
 [Jean-Pierre Bucciol]: http://www.vide.memoire.free.fr/perso/OneStepBack/onestepback.php
 
