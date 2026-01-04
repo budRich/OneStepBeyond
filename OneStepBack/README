@@ -14,29 +14,39 @@ README OneStepBack
 - [#10 Changelog]
 - [#11 Version numbering]
 - [#12 Download]
-- [#13 Aur Current version Package Build for Arch Linux]
 
 ==[#1] OneStepBack==
 
-OneStepBack is a Gtk 2, 3 and 4 theme with some colors and embossed widgets inspired by the good old NextStep look. I'm old.
+OneStepBack is a Gtk 2, 3 and 4 theme with some colors and embossed widgets inspired by the good old [NeXTSTEP https://en.wikipedia.org/wiki/NeXTSTEP] look. I'm old.
 
 It is developed from scratch, is light and minimal, uses only three shades of grays and one color. That was the challenge.
 
-It has been tested on Arch Linux with Gnome-Shell, Gtk+ from 3.16 to 3.24 and Gtk+ 4.4.1, a good amount of Gtk2 and Gtk3 applications and a very few Gtk4 applications. A lot of widget controls are still missing (but the defaults should be good enough) and it is not tested at all with unity or xfce.
+It has been tested on Arch Linux with Gnome-Shell, Gtk+ from 3.16 to 3.24 and Gtk+ 4.12.4, a good amount of Gtk2 and Gtk3 applications and a very few Gtk4 applications. A lot of widget controls are still missing (but the defaults should be good enough) and it is not tested at all with unity or xfce.
 
 ==[#2] Version==
 
-Current version is 0.995, released in January 2024.
+Current version is 0.997, released in March 2024.
 
 ==[#3] Screenshots==
 
-The screenshots show OneStepBack theme and a slightly darker variation. They show also : [Ubo Icons Theme https://www.gnome-look.org/content/show.php?content=122078] with personal additions, [Dash to Dock https://extensions.gnome.org/extension/307/dash-to-dock/] and [Dynamic Top Bar https://extensions.gnome.org/extension/885/dynamic-top-bar/] Gnome Shell extensions.
+The screenshots show OneStepBack theme and a slightly darker and contrasty variation : OneStepBack-wm2. They show also : [Ubo Icons Theme https://www.gnome-look.org/p/1012539/] with personal additions, [Dash to Dock https://extensions.gnome.org/extension/307/dash-to-dock/] and [Dynamic Top Bar https://extensions.gnome.org/extension/885/dynamic-top-bar/] Gnome Shell extensions.
 
 ==[#4] Installation==
 
-To install the theme, unzip the archive and copy the theme in your theme directory. There is no need for any extra //engine//.
+To install the theme, unzip the archive and copy the theme in your theme directory, usually ``~/.local/share/themes``. There is no need for any extra //engine//.
+% For Arch Linux users, see below our [#Aur packages] for system installation.
 
-For Arch Linux users, see below our [#Aur packages] for system installation.
+To make the change effective, //right now in January 2024//, you will have to :
+
+- put ``export GTK_THEME=OneStepBack`` in your ``~/.xprofile`` file;
+
+- use the application ``gnome-tweaks`` and select OneStepBack in ``Appearance/Legacy Appplications``.
+
+- then, log out from your XWindow or Wayland session and restart it.
+
+I know, this is now ridiculously complicated.
+
+Tip : QT applications can use some base colors of the gtk theme after installing ``qt5-styleplugins`` and ``qt6gtk2``, for a more consistent overall appearance.
 
 ==[#5] Author==
 
@@ -48,13 +58,13 @@ This is a [GPL 3 https://www.gnu.org/licenses/gpl.txt] free software. Feel free 
 
 ==[#7] Web pages==
 
-- [OneStepBack theme main page and download  http://www.vide.memoire.free.fr/perso/OneStepBack/onestepback.php]
+- [OneStepBack theme main page  http://www.vide.memoire.free.fr/perso/OneStepBack/onestepback.php]
 
 - [OneStepBack at gnome-look.org http://www.gnome-look.org/p/1013663]
 
 ==[#8]  Colors variations==
 
-It's easy to change the dominant colors of the theme. Change the colors definitions in the first lines of ``gtk-2.0/gtk2rc``, ``gtk-3.0/gtk.css`` and ``gtk-4.0/gtk.css``. For example, for a [WindowMaker https://www.windowmaker.org/] like version, try to change in ``gtk-2.0/gtk2rc`` :
+The dominant colors of the theme are easy to change. They are defined in the first lines of files ``gtk-2.0/gtk2rc``, ``gtk-3.0/gtk.css`` and ``gtk-4.0/gtk.css``. For example, for a [WindowMaker https://www.windowmaker.org/]-like version, try to change in ``gtk-2.0/gtk2rc`` :
 
 ```
 gtk-color-scheme = "white_color:#ffffff
@@ -100,13 +110,42 @@ In ``gtk-3.0/gtk.css`` and ``gtk-4.0/gtk.css`` :
 
 - LibreOffice : black color on black background in some widgets : unfortunatly, nothing I can do. Workaround : please try to put "``export SAL_USE_VCLPLUGIN=kf5``" in your ``~/.xsessionrc`` file  (or ``~/.xprofile``, or ``~/.bashrc``) and restart your X session.
 
-- Firefox, Thunderbird and QT5 applications : arrow buttons shape and colors, color of active menu items : unfortunatly, nothing I can do.
+- Firefox, Thunderbird and QT applications : arrow buttons shape and colors, color of active menu items : unfortunatly, nothing I can do.
 
 - gtk4 port is very experimental !
 
 ==[#10] Changelog==
 
-Version 0.996, working version
+Version 0.998, working version
+
+Version 0.997, March 2024
+- gtk4: improve button image:active
+- gtk3: fix a bug in background-color of headerbar button:active:hover
+- gtk4: fix a bug in headerbar color name
+- gtk4: improve switch widget in list
+- gtk3: fix inconsistencies in outset and inset widgets
+- gtk3: fix a color bug in switch widget
+- gtk3: fix a bug in label of disabled combobox button
+- gtk4: improve listview widget
+- gtk3-4: all headerbar widgets turn gray when backdrop
+- gtk4: improve spinbutton text widget
+
+Version 0.996, February 2024
+- gtk4: improve progressbar and scale widgets
+- gtk4: improve embossed widgets
+- gtk3-4 : add minimal support of tooltip widget
+- gtk3-4: improve separators; remove vertical separator in headerbar
+- gtk4: improve arrows in menus
+- gtk3-4: improve notebook top and left tabs borders
+- gtk3-4: fix color inconsistencies in disabled labels and spinbuttons
+- gtk3-4: the close button in headerbars now turns red or orange when hover
+- gtk3-4: add a gray change on buttons in headerbar when hover.
+- gtk3: fix some inconsistencies in label of disabled menuitems
+- gtk3-4: fix a color bug in the label of disabled check buttons.
+- gtk3-4: lower the minimum height of the headerbars
+- gtk4: improve some calendar widgets
+- change slightly  the base and lighter colors
+- gtk3: fix a mismatch of the different versions where the derived colors were harded coded
 
 Version 0.995, January 2024
 - gtk3: fix a bug with the height of titlebar
@@ -249,17 +288,22 @@ Version 0.1, August 2015
 
 ==[#11] Version numbering==
 
-$\forall n \in \mathbb{N}^*, v_n=1-0.1^{\int(n/9)}+\rest(n/9)*10^{-\int(n/9)-1}$.
+%~ $\forall n \in \mathbb{N}^*, v_n=1-0.1^{\int(n/9)}+\rest(n/9)*10^{-\int(n/9)-1}$.
+Version 1 will be the definitive version...
 
 ==[#12] Download==
 
 Current version:
 
-- [OneStepBack-v0.995.zip OneStepBack-v0.995.zip]
-- [OneStepBack-darker-v0.995.zip OneStepBack-darker-v0.995.zip]
+- [OneStepBack-v0.997.zip OneStepBack-v0.997.zip]
+- [OneStepBack-wm2-v0.997.zip OneStepBack-wm2-v0.997.zip]
 
 Older versions:
 
+- [OneStepBack-v0.996.zip OneStepBack-v0.996.zip]
+- [OneStepBack-wm2-v0.996.zip OneStepBack-wm2-v0.996.zip]
+- [OneStepBack-v0.995.zip OneStepBack-v0.995.zip]
+- [OneStepBack-darker-v0.995.zip OneStepBack-darker-v0.995.zip]
 - [OneStepBack-v0.994.zip OneStepBack-v0.994.zip]
 - [OneStepBack-darker-v0.994.zip OneStepBack-darker-v0.994.zip]
 - [OneStepBack-v0.993.zip OneStepBack-v0.993.zip]
@@ -285,18 +329,4 @@ Older versions:
 - [OneStepBack-v0.3.zip OneStepBack-v0.3.zip]
 - [OneStepBack-v0.2.zip OneStepBack-v0.2.zip]
 - [OneStepBack-v0.1.zip OneStepBack-v0.1.zip]
-
-==[#13] [#Aur] Current version Package Build for Arch Linux ==
-
-- [gtk-theme-onestepback.zip gtk-theme-onestepback.zip]
-- [gtk-theme-onestepback-darker.zip gtk-theme-onestepback-darker.zip]
-
-Use of the Aur Package :
-
-```
-unzip gtk-theme-onestepback.zip
-cd gtk-theme-onestepback
-makepkg -s
-pacman -U gtk-theme-onestepback-0.995-1-any.pkg.tar.zst
-```
 

@@ -1,6 +1,6 @@
 /**********************************************/
 /* OneStepBack theme; gtk4 part               */
-/* jpsb: nov 2021 - fév 2024                 */
+/* jpsb: nov 2021 - march 2024                 */
 /**********************************************/
 
 /**********************************************/
@@ -62,7 +62,7 @@
 /* color: séparations verticales dans la barre */
 
 headerbar, messagedialog .titlebar {
-    background-color: @black_color; /* fond de barre */
+    background-color: @headerbar_bg_color; /* fond de barre */
     color: @white_color; /* séparations verticales dans la barre */
     border-radius: 5px 5px 0px 0px;
     min-height: 26px;
@@ -73,7 +73,7 @@ headerbar, messagedialog .titlebar {
     font-weight: bold;
 }
 
-.titlebar .title:backdrop {
+headerbar *:backdrop, .titlebar .title:backdrop, .titlebar:backdrop {
     color: @base_color;
 }
 
@@ -121,8 +121,9 @@ button:active, button:checked {
     border-bottom: 1px solid @inset_lighter_color;
 }
 
+/*mod le 1er mars 2024*/
 button:checked:hover,button:active:hover {
-    background-color:@base_color;
+    background-color:@darker_color;
 }
 
 button:disabled:checked  {
@@ -137,7 +138,7 @@ button:disabled:checked  {
 button label {
     padding-left: 2px;
     padding-right: 2px;
-    backgound-color: transparent;
+    background-color: transparent;
 }
 
 button:disabled, button label:disabled {
@@ -148,11 +149,18 @@ button:checked label:disabled {
     color: @darker_color;
 }
 
+
+/*ajout du 1er mars 2024: widgetfactory*/
+button image:active {
+    color: @black_color;
+    background-color: @darker_color;;
+}
+
 /*ajout du 2 fév 2024: pages/print/miseenpage*/
 button stack row {
-   background-color: transparent;
-   margin :0;
-   padding: 0;
+    background-color: transparent;
+    margin :0;
+    padding: 0;
 }
 
 headerbar button {
@@ -288,6 +296,17 @@ popover modelbutton {
 }
 
 popover modelbutton:hover, popover modelbutton:active {
+    background-color: @menuitem_selected_bg_color;
+    color: @menuitem_selected_fg_color;
+}
+
+/*ajout du 4 fév 2024 gnome-system-control*/
+/*le border ne semble pas fonctionner en dehors de parasite*/
+popover row {
+    border: 0;
+}
+
+popover row:selected {
     background-color: @menuitem_selected_bg_color;
     color: @menuitem_selected_fg_color;
 }
@@ -824,6 +843,15 @@ treeview *:selected {
     color: @listitem_selected_fg_color;
 }
 
+listview {
+   background-color: @lighter_color;
+}
+
+paper {
+    background-color: @lighter_color;
+    color: @black_color;
+}
+
 /*
 listview row {
     background-color: @base_color;
@@ -1034,6 +1062,11 @@ switch {
     min-width: 75px;
 }
 
+list switch {
+    border-left: 1px solid @inset_darker_color;
+    border-top: 1px solid @inset_darker_color;
+}
+
 headerbar switch {
     min-height: 21px;
     min-width: 52px;
@@ -1056,6 +1089,11 @@ switch slider {
     border-bottom: 2px solid @outset_darker_color;
 }
 
+list switch slider {
+    border-right: 1px solid @outset_darker_color;
+    border-bottom: 1px solid @outset_darker_color;
+}
+
 switch:disabled {
     background-color: @darker_color;
     color: @base_color;
@@ -1070,6 +1108,16 @@ switch:disabled slider {
 /**********************************************/
 /* spinbutton, tooltips */
 /**********************************************/
+
+spinbutton text {
+    background-color:@lighter_color;
+    border-left: 2px solid @inset_darker_color;
+    border-top: 2px solid @inset_darker_color;
+    border-right: 1px solid @inset_lighter_color;
+    border-bottom: 1px solid @inset_lighter_color;
+    padding-left: 3px;
+    padding-right: 3px;
+}
 
 spinbutton *:disabled {
     color: @darker_color;
@@ -1322,7 +1370,6 @@ color: white;
 /*
 GTK_DEBUG=interactive myexcutable
 */
-
 
 /**********************************************/
 /* The End */
