@@ -1,6 +1,6 @@
 /**********************************************/
 /* OneStepBack theme; gtk3 part               */
-/* jpsb: July 2015 - nov 2020                 */
+/* jpsb: July 2015 - jan 2024                 */
 /**********************************************/
 
 /**********************************************/
@@ -18,14 +18,14 @@
 /* Derived colors */
 /**********************************************/
 
-@define-color headerbar_bg_color @black_color;
-@define-color button_selected_bg_color @darker_color;
-@define-color text_selected_bg_color @darker_color;
-@define-color text_selected_fg_color @lighter_color;
-@define-color menuitem_selected_bg_color @lighter_color;
-@define-color menuitem_selected_fg_color @black_color;
-@define-color listitem_selected_bg_color @darker_color;
-@define-color listitem_selected_fg_color @lighter_color;
+@define-color headerbar_bg_color #000000;
+@define-color button_selected_bg_color #707070;
+@define-color text_selected_bg_color #707070;
+@define-color text_selected_fg_color #ffffff;
+@define-color menuitem_selected_bg_color #efeeed;
+@define-color menuitem_selected_fg_color #000000;
+@define-color listitem_selected_bg_color #707070;
+@define-color listitem_selected_fg_color #ffffff;
 @define-color text_view_bg @lighter_color; /* hack for gnome terminal 27 sep 2020 */
 
 /**********************************************/
@@ -58,8 +58,9 @@
 
 headerbar, messagedialog .titlebar {
     background-color: @headerbar_bg_color; /* fond de barre */
-    color: @headerbar_bg_color; /* séparations verticales dans la barre */
-    border-radius: 5px 5px 0px 0px;
+    color: @headerbar_fg_color; /* séparations verticales dans la barre */
+    border-radius: 6px 6px 0px 0px;
+    min-height: 30px;
 }
 
 .titlebar .title {
@@ -79,18 +80,25 @@ headerbar, messagedialog .titlebar {
 /* ombres des fenêtres */
 decoration {
     /* arrondi des angles la barre de titre */
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 6px 6px 0px 0px;
 
     /* the resize cursor area */
     margin: 10px;
 
     /* box-shadow: [inset] horizontal_offset vertical_offset blur_radius color; */
-    box-shadow: 0 3px 3px 1px @black_color, 0 0 0 1px @black_color;
+    box-shadow: 5px 5px 5px 0px shade(@darker_color,0.2);
 }
 
-decoration:backdrop {
-    box-shadow: 0 3px 3px 1px @black_color, 0 0 0 1px @black_color;
+/* ajout du 7 jan 2023 */
+window {
+    border-radius: 6px  6px 0px 0px;
 }
+
+/*
+decoration:backdrop {
+    box-shadow: 0 5px 5px 1px shade(@black_color,0.8);;
+}
+*/
 
 /***********************************************/
 /* general */
@@ -146,9 +154,13 @@ button:disabled {
 }
 
 headerbar button, headerbar button:selected, headerbar button:hover {
-    border: none;
     background-color: transparent; /* fond de bouton de headerbar */
     color: @white_color; /* couleur int bouton de barre */
+/*
+    border: 1px solid @darker_color;
+    border-radius: 3px 3px 3px 3px;
+*/
+    border : none;
 }
 
 headerbar button:checked, headerbar button:checked:hover {
@@ -168,12 +180,17 @@ headerbar button:backdrop {
     color: @lighter_color;
 }
 
-headerbar .close.titlebutton:active:hover {
-    background-color: @text_selected_bg_color;
+
+headerbar button .close:active:hover {
+    color: red;
+    background-color: transparent;
+    border: none;
 }
 
-headerbar button:disabled:backdrop {
-    color: @darker_color;
+headerbar button .close {
+    color: blue;
+    background-color: transparent; /* for thunderbird */
+    border: none;
 }
 
 /**********************************************/
@@ -266,7 +283,7 @@ toolbar button:checked:hover {
 /**********************************************/
 /* scale */
 /**********************************************/
- 
+
 scale trough {
     margin: 1px;
     background-color: @darker_color;
@@ -493,7 +510,7 @@ scrollbar.vertical button.down:disabled {
         padding-right: 2px;
         padding-top: 4px;
         padding-bottom: 3px;
-    min-height: 5px;
+        min-height: 5px;
         -gtk-icon-source: url("../img/arrow-down-disabled.png");
 }
 
@@ -621,6 +638,11 @@ iconview *:selected, iconview *:active {
 grid *:selected, grid *:active {
     background-color: @text_selected_bg_color;
     color: @text_selected_fg_color;
+}
+
+rubberband {
+    border: 1px solid @black_color;
+    background-color: transparent;
 }
 
 /**********************************************/
@@ -944,7 +966,7 @@ switch:disabled slider {
 /* arrow */
 /**********************************************/
 
-combobox arrow {  
+combobox arrow {
         min-height: 19px;
         min-width: 19px;
     background-repeat: no-repeat;
@@ -952,7 +974,7 @@ combobox arrow {
     background-image: url("../img/combobox-arrow-down.png");
 }
 
-combobox arrow:disabled {  
+combobox arrow:disabled {
     background-image: url("../img/combobox-arrow-down-disabled.png");
 }
 
@@ -1014,12 +1036,11 @@ calendar:indeterminate {
 /**********************************************/
 
 /* selection in evince */
-/*
+/* remis en place le 1er mars 2022 */
 .view:selected  {
     background-color: @text_selected_bg_color;
     color: @text_selected_fg_color;
 }
-*/
 
 /* icon color selected and unfocused in nautilus */
 /*
@@ -1075,6 +1096,7 @@ nautilus-desktop-window * {
     background-color: transparent;
 }
 
+
 /* background of nautilus icon window */
 /*.nautilus-window, .nautilus-window notebook {
   background-color: @lighter_color;
@@ -1083,23 +1105,23 @@ nautilus-desktop-window * {
 /* zebra strips do not work with recent versions */
 /*view row:nth-child(even) {
         background-color: green;
-} 
+}
 treeview row:nth-child(even)
 {
         background-color: green;
-} 
+}
 */
 
 /*
 GtkTreeView row:even {
         background-color: red;
-}                                                                  
+}
 
 GtkTreeView row:odd {
         background-color: green;
 }
 */
- 
+
 /*
 GTK_DEBUG=interactive myexcutable
 */
@@ -1108,3 +1130,4 @@ GTK_DEBUG=interactive myexcutable
 /**********************************************/
 /* The End */
 /**********************************************/
+
