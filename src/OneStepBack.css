@@ -1,6 +1,6 @@
 /**********************************************/
 /* OneStepBack theme; gtk3 part               */
-/* jpsb: July 2015 - fév 2024                 */
+/* jpsb: July 2015 - march 2024                 */
 /**********************************************/
 
 /**********************************************/
@@ -71,7 +71,7 @@ headerbar, messagedialog .titlebar {
     font-weight: bold;
 }
 
-.titlebar .title:backdrop {
+headerbar *:backdrop, .titlebar .title:backdrop, .titlebar:backdrop {
     color: @base_color;
 }
 
@@ -133,10 +133,10 @@ button {
 
 button:active, button:checked {
     background-color: @button_selected_bg_color;
-    border-left: 1px solid @inset_darker_color;
-    border-top: 1px solid @inset_darker_color;
-    border-right: 1.3px solid @inset_lighter_color;
-    border-bottom: 1.3px solid @inset_lighter_color;
+    border-left: 1.3px solid @inset_darker_color;
+    border-top: 1.3px solid @inset_darker_color;
+    border-right: 1px solid @inset_lighter_color;
+    border-bottom: 1px solid @inset_lighter_color;
 }
 
 button:active:hover {
@@ -242,6 +242,10 @@ combobox menu {
     border-right: 1px solid @outset_darker_color;
 }
 
+combobox button:disabled {
+    color: @darker_color;
+}
+
 /*ajout du 20 jan 2024 : Gaupol */
 menuitem label:disabled {
     color: @darker_color;
@@ -274,10 +278,10 @@ toolbar button:hover {
 toolbar button:checked,
 toolbar button:active {
     background-color: @button_selected_bg_color;
-    border-left: 1.3px solid  @black_color;
-    border-top: 1.3px solid  @black_color;
+    border-top: 1.3px solid @inset_darker_color;
+    border-left: 1.3px solid @inset_darker_color;
+    border-bottom: 1px solid @inset_darker_color;
     border-right: 1px solid @inset_lighter_color;
-    border-bottom: 1px solid @inset_lighter_color;
 }
 
 toolbar button:active:hover {
@@ -286,6 +290,10 @@ toolbar button:active:hover {
 
 toolbar button:checked:hover {
     background-color: @base_color;
+}
+
+toolbar button:active:hover {
+    background-color: @darker_color;
 }
 
 /**********************************************/
@@ -601,8 +609,8 @@ entry {
     background-color: @lighter_color;
     color: @black_color;
     padding: 2px;
-    border-left: 1.3px solid  @black_color;
-    border-top: 1.3px solid  @black_color;
+    border-left: 1.3px solid @outset_darker_color;
+    border-top: 1.3px solid @outset_darker_color;
     border-right: 1px solid @inset_lighter_color;
     border-bottom: 1px solid @inset_lighter_color;
 }
@@ -649,10 +657,11 @@ grid *:selected, grid *:active {
     color: @text_selected_fg_color;
 }
 
-rubberband {
-    border: 1px solid @inset_darker_color;
-    background-color: transparent;
+rubberband, .rubberband  {
+    border: 1px solid @black_color;
+    background-color: alpha(@scale_color,0.3);
 }
+
 
 /**********************************************/
 /* frame, notebook, tab */
@@ -983,12 +992,12 @@ popover label:disabled {
 
 switch {
     font-weight: bold;
-    background-color: @base_color;
+    background-color: @scale_color;
     color: @black_color;
-    border-left: 1.3px solid @outset_darker_color;
-    border-top: 1.3px solid @outset_darker_color;
-    border-right: 1.3px solid @lighter_color;
-    border-bottom: 1.3px solid @lighter_color;
+    border-left: 1.3px solid @inset_darker_color;
+    border-top: 1.3px solid @inset_darker_color;
+    border-right: 1px solid @inset_lighter_color;
+    border-bottom: 1px solid @inset_lighter_color;
 }
 
 switch:checked {
@@ -1109,12 +1118,12 @@ calendar:indeterminate {
 /**********************************************/
 
 /* selection in evince */
-/* remis en place le 1er mars 2022, puis mod le 31 jan 2024, ne semble fonctionner en dehors de parasite */
-.view:selected {
+/* remis en place le 1er mars 2022, puis mod le 31 jan 2024, ne semble pa fonctionner en dehors de parasite */
+evview.view:selected {
     background-color: @text_selected_bg_color;
     color: @text_selected_fg_color;
 }
-evview.view {
+evview.view, evview.content-view {
     background-color: @base_color;
 }
 
@@ -1141,7 +1150,33 @@ nautilus-desktop-window * {
     color: @text_selected_fg_color;
 }
 
-/* thunderbird: item selected in list */
+/*
+#MozillaGtkWidget #urlbarView, #MozillaGtkWidget urlbarView, #MozillaGtkWidget .urlbarView {
+    background-color: yellow;
+    color: blue;
+}
+# MozillaGtkWidget menubar { background-color: lightblue; color: blue; }
+*/
+
+/*
+#MozillaGtkWidget.background *:not(menuitem):hover, #MozillaGtkWidget.background *:not(menuitem):hover button,
+#MozillaGtkWidget.background *:focus,
+#MozillaGtkWidget.background *:focus button,
+#MozillaGtkWidget.background *:active,
+#MozillaGtkWidget.background *:active button,
+#MozillaGtkWidget.background *:checked,
+#MozillaGtkWidget.background *:checked button {
+  color: red;
+  background-color: yellow;
+}
+#urlbar.background, #urlbar-input, #urlbar-background {
+  background-color: green;
+  color: blue;
+}
+*/
+
+
+  /* thunderbird: item selected in list */
 /* ne semble plus être utile au 14 fev 2019 */
 /*
 .view:selected {
@@ -1154,14 +1189,53 @@ nautilus-desktop-window * {
 .caja-notebook .view {
     background-color: @base_color;
 }
-.caja-notebook .view:selected,
-.caja-notebook .view:selected:focus
-{
+.caja-notebook .view:selected, .caja-notebook .view:selected:focus {
     background-color: @darker_color;
 }
 .caja-notebook .rubberband {
     background-color: transparent;
 }
+
+/* selection in icon view in pcmanfm-gtk3 */
+notebook .view:selected {
+    background-color: @darker_color;
+    color: @white_color;
+}
+
+/* tabs buttons in geany 27 fev 2024*/
+notebook header tabs arrow.down, notebook header tabs arrow.up {
+    background-color: @base_color;
+    color: @black_color;
+    border-left: 1.3px solid transparent;
+    border-top: 1.3px solid transparent;
+    border-right: 1.3px solid transparent;
+    border-bottom: 1.3px solid transparent;
+}
+notebook header tabs arrow.up {
+ padding-left: 7px;
+}
+
+notebook header tabs arrow.down {
+ padding-right: 7px;
+}
+
+notebook header tabs arrow.down:hover,notebook header tabs arrow.up:hover {
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @outset_darker_color;
+    border-bottom: 1.3px solid @outset_darker_color;
+}
+notebook header tabs arrow.down:active, notebook header tabs arrow.up:active {
+    background-color: @button_selected_bg_color;
+    border-left: 1.3px solid @inset_darker_color;
+    border-top: 1.3px solid @inset_darker_color;
+    border-right: 1px solid @inset_lighter_color;
+    border-bottom: 1px solid @inset_lighter_color;
+}
+notebook header tabs arrow.down:disabled, notebook header tabs arrow.up:disabled {
+    color: @darker_color;
+}
+
 
 
 
@@ -1174,4 +1248,5 @@ GTK_DEBUG=interactive myexcutable
 /**********************************************/
 /* The End */
 /**********************************************/
+
 
