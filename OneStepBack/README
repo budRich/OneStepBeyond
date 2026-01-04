@@ -2,15 +2,15 @@ README OneStepBack
 
 ==OneStepBack==
 
-OneStepBack is a Gtk 2 and 3 theme with some colors and embossed widgets inspired by the good old NextStep look. I'm old.
+OneStepBack is a Gtk 2, 3 and 4 theme with some colors and embossed widgets inspired by the good old NextStep look. I'm old.
 
 It is developed from scratch, is light and minimal, uses only three shades of grays and one color. That was the challenge.
 
-It has been tested on Arch Linux with Gnome-Shell, Gtk+ from 3.16 to 3.24, a good amount of Gtk2 and Gtk3 applications. A lot of widget controls are still missing (but the defaults should be good enough) and it is not tested at all with unity or xfce.
+It has been tested on Arch Linux with Gnome-Shell, Gtk+ from 3.16 to 3.24 and Gtk+ 4.4.1, a good amount of Gtk2 and Gtk3 applications and a very few Gtk4 applications. A lot of widget controls are still missing (but the defaults should be good enough) and it is not tested at all with unity or xfce.
 
 ==Version==
 
-Current version is 0.992, released in November 2020.
+Current version is 0.993, released in November 2021.
 
 ==Screenshots==
 
@@ -30,7 +30,7 @@ This is a [GPL 3 https://www.gnu.org/licenses/gpl.txt] free software. Feel free 
 
 ==Web pages==
 
-- [OneStepBack theme main page and download  http://www.vide.memoire.free.fr/perso/OneStepBack]
+- [OneStepBack theme main page and download  http://www.vide.memoire.free.fr/perso/OneStepBack/onestepback.php]
 
 - [OneStepBack at gnome-look.org http://www.gnome-look.org/p/1013663]
 
@@ -42,7 +42,12 @@ This is a [GPL 3 https://www.gnu.org/licenses/gpl.txt] free software. Feel free 
 
 ==Changelog==
 
-Version 0.993, working version
+Version 0.994, working version
+
+Version 0.993, November 2021
+
+- gtk3: change behaviour for label disactived color
+- gtk4: first very experimental port
 
 Version 0.992, November 2020
 - keep only one variant, slightly darker.
@@ -51,7 +56,7 @@ Version 0.992, November 2020
 - gtk3: improve color selection of button:active:hover and button:checked:hover.
 - gtk3: remove some obsolete tweaks
 - gtk3: compatibility with gtk 3.24 checked
-- add a darker variant: OneStepBack-grey-black-blue
+- add a darker variant: OneStepBack-darker
 - gtk3: hack fix a color bug in gnome terminal 3.36.2
 
 Version 0.991, July 2018

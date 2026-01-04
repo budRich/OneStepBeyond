@@ -343,8 +343,8 @@ widget_class "*ComboBox*" style "combobox"
 # avoid wrong background color in rox when switching theme
 style "rox"
 {
-    base[NORMAL]        = @base_color
-    bg[NORMAL]          = @base_color
+    base[NORMAL]        = @lighter_color
+    bg[NORMAL]          = @lighter_color
 }
 
 widget_class "*ViewCollection*" style "rox"
