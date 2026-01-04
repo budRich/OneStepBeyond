@@ -7,7 +7,7 @@ upstream_version=${1:-0.997}
 zip_file="OneStepBack-v${upstream_version}.zip"
 url=http://www.vide.memoire.free.fr/pages/onestepback/"$zip_file"
 git checkout "$upstream_branch" || exit 1
-wget "$url"
+[[ -f $zip_file ]] || wget "$url"
 
 [[ -d OneStepBack ]] && rm -rf OneStepBack/
 [[ -d theme ]] && rm -rf theme/
