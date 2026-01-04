@@ -1,6 +1,21 @@
 README OneStepBack
 
-==OneStepBack==
+==Summary==
+
+- [#1 OneStepBack]
+- [#2 Version]
+- [#3 Screenshots]
+- [#4 Installation]
+- [#5 Author]
+- [#6 Licence]
+- [#7 Web pages]
+- [#8 Known Bugs]
+- [#9 Changelog]
+- [#10 Version numbering]
+- [#11 Download]
+- [#12 Aur Current version Package Build for Arch Linux]
+
+==[#1] OneStepBack==
 
 OneStepBack is a Gtk 2, 3 and 4 theme with some colors and embossed widgets inspired by the good old NextStep look. I'm old.
 
@@ -8,41 +23,49 @@ It is developed from scratch, is light and minimal, uses only three shades of gr
 
 It has been tested on Arch Linux with Gnome-Shell, Gtk+ from 3.16 to 3.24 and Gtk+ 4.4.1, a good amount of Gtk2 and Gtk3 applications and a very few Gtk4 applications. A lot of widget controls are still missing (but the defaults should be good enough) and it is not tested at all with unity or xfce.
 
-==Version==
+==[#2] Version==
 
-Current version is 0.993, released in November 2021.
+Current version is 0.994, released in February 2022.
 
-==Screenshots==
+==[#3] Screenshots==
 
 The screenshots show OneStepBack theme and a slightly darker variation. They show also: [Ubo Icons Theme https://www.gnome-look.org/content/show.php?content=122078] with personal additions, [Dash to Dock https://extensions.gnome.org/extension/307/dash-to-dock/] and [Dynamic Top Bar https://extensions.gnome.org/extension/885/dynamic-top-bar/] Gnome Shell extensions.
 
-==Installation==
+==[#4] Installation==
 
 To install the theme, unzip the archive and copy the theme in your theme directory. There is no need for any extra //engine//.
 
-==Author==
+For Arch Linux user, see below our [#Aur packages] for system installation.
+
+==[#5] Author==
 
 The author is [Jean-Pierre Bucciol jpsspam(at)free.fr].
 
-==Licence==
+==[#6] Licence==
 
 This is a [GPL 3 https://www.gnu.org/licenses/gpl.txt] free software. Feel free to change and share the code.
 
-==Web pages==
+==[#7] Web pages==
 
 - [OneStepBack theme main page and download  http://www.vide.memoire.free.fr/perso/OneStepBack/onestepback.php]
 
 - [OneStepBack at gnome-look.org http://www.gnome-look.org/p/1013663]
 
-==Known Bugs==
+==[#8] Known Bugs==
 
 - LibreOffice: black color on black background in some widgets: unfortunatly, nothing I can do. Workaround: please try to put "``export SAL_USE_VCLPLUGIN=kf5``" in your ``~/.xsessionrc`` file  (or ``~/.xprofile``, or ``~/.bashrc``) and restart your X session.
 
 - Firefox, Thunderbird and QT5 applications: arrow buttons shape and colors, color of active menu items: unfortunatly, nothing I can do.
 
-==Changelog==
+- gtk4 port is very experimental !
 
-Version 0.994, working version
+==[#9] Changelog==
+
+Version 0.995, working version
+
+Version 0.994, February 2022
+
+- gtk4: genuine version was using the darker colors ! Fixed
 
 Version 0.993, November 2021
 
@@ -170,7 +193,52 @@ Version 0.1, August 2015
 
 - initial version
 
-==Version numbering==
+==[#10] Version numbering==
 
 $\forall n \in \mathbb{N}^*, v_n=1-0.1^{\int(n/9)}+\rest(n/9)*10^{-\int(n/9)-1}$.
+
+==[#11] Download==
+
+Current version:
+ 
+- [OneStepBack-v0.993.zip ../perso/OneStepBack/OneStepBack-v0.993.zip]
+- [OneStepBack-darker-v0.993.zip ../perso/OneStepBack/OneStepBack-darker-v0.993.zip]
+
+Older versions:
+
+- [OneStepBack-v0.992.zip ../perso/OneStepBack/OneStepBack-v0.992.zip]
+- [OneStepBack-darker-v0.992.zip ../perso/OneStepBack/OneStepBack-darker-v0.992.zip]
+- [OneStepBack-v0.991.zip ../perso/OneStepBack/OneStepBack-v0.991.zip]
+- [OneStepBack-grey-brown-green-blue-v0.991.zip ../perso/OneStepBack/OneStepBack-grey-brown-green-blue-v0.991.zip]
+- [OneStepBack-green-brown-v0.991.zip ../perso/OneStepBack/OneStepBack-green-brown-v0.991.zip]
+- [OneStepBack-v0.99.zip ../perso/OneStepBack/OneStepBack-v0.99.zip]
+- [OneStepBack-grey-brown-v0.99.zip ../perso/OneStepBack/OneStepBack-grey-brown-v0.99.zip]
+- [OneStepBack-green-brown-v0.99.zip ../perso/OneStepBack/OneStepBack-green-brown-v0.99.zip]
+- [OneStepBack-v0.98.zip ../perso/OneStepBack/OneStepBack-v0.98.zip]
+- [OneStepBack-v0.97.zip ../perso/OneStepBack/OneStepBack-v0.97.zip]
+- [OneStepBack-v0.96.zip ../perso/OneStepBack/OneStepBack-v0.96.zip]
+- [OneStepBack-v0.94.zip ../perso/OneStepBack/OneStepBack-v0.94.zip]
+- [OneStepBack-v0.91.zip ../perso/OneStepBack/OneStepBack-v0.91.zip]
+- [OneStepBack-v0.9.zip ../perso/OneStepBack/OneStepBack-v0.9.zip]
+- [OneStepBack-v0.7.zip ../perso/OneStepBack/OneStepBack-v0.7.zip] <--- Last version for Gtk+ 3.16 and 3.18
+- [OneStepBack-v0.6.zip ../perso/OneStepBack/OneStepBack-v0.6.zip]
+- [OneStepBack-v0.5.zip ../perso/OneStepBack/OneStepBack-v0.5.zip]
+- [OneStepBack-v0.4.zip ../perso/OneStepBack/OneStepBack-v0.4.zip]
+- [OneStepBack-v0.3.zip ../perso/OneStepBack/OneStepBack-v0.3.zip]
+- [OneStepBack-v0.2.zip ../perso/OneStepBack/OneStepBack-v0.2.zip]
+- [OneStepBack-v0.1.zip ../perso/OneStepBack/OneStepBack-v0.1.zip]
+
+==[#12] [#Aur] Current version Package Build for Arch Linux ==
+
+- [gtk-theme-onestepback.zip gtk-theme-onestepback.zip]
+- [gtk-theme-onestepback-darker.zip gtk-theme-onestepback-darker.zip]
+
+Use of the Aur Package:
+
+```
+unzip gtk-theme-onestepback.zip
+cd gtk-theme-onestepback
+makepkg -s
+pacman -U gtk-theme-onestepback-0.993-1-any.pkg.tar.zst
+```
 
