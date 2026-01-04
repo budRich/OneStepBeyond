@@ -14,6 +14,7 @@ git checkout "$upstream_branch" || exit 1
 unzip "$zip_file"
 mv OneStepBack theme
 mv -f theme/gtk-3.0/gtk.css src/OneStepBack.css
+rm theme/LICENSE theme/README
 
 git add .
 git commit -m "Pulled Upstream v${upstream_version}"
