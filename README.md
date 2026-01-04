@@ -10,7 +10,8 @@ GNU make , sassc
 ### dev dependencies:
 there are some convenience targets in the makefile
 that automatically reloads the theme and stuff, for
-that to work you need `xfconfd` running (Xfce4)  
+that to work you need `xfconfd` running (Xfce4), and
+inotifyway 
 
 ```shell
 make PREFIX=~/.local install
@@ -21,6 +22,8 @@ make install
 # install theme at ~/.themes/OneStepBeyond
 make install-dev
 # symlink theme/ to ~/.themes/OneStepBeyond
+make PREFIX=~/.local install-dev
+# symlink theme/ to ~/.local/share/themes/OneStepBeyond
 make watch
 # auto reload theme (must be symlinked) when files
 # in src/sass is modified.
@@ -34,7 +37,10 @@ make restore
 I have noticed that at least Xfce doesn't seem to be
 able to apply the theme for GTK2 applications if the theme
 is installed in `~/.local/share/themes`, however `~/.themes`
-and `/usr/share/themes` work fine.
+and `/usr/share/themes` work fine.  
+
+So make sure to symlink ~/.local/share/themes -> ~/.themes  
+`ln -s ~/.local/share/themes ~/.themes`
 
 
 [Jean-Pierre Bucciol]: http://www.vide.memoire.free.fr/perso/OneStepBack/onestepback.php
