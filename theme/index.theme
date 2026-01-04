@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=OneStepBeyond
-Comment=Good times look theme
+Name=OneStepBack
+Comment=An old look theme
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=OneStepBeyond
+GtkTheme=OneStepBack

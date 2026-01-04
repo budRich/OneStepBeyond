@@ -8,9 +8,10 @@
 /**********************************************/
 
 @define-color white_color #ffffff;
-@define-color lighter_color #d8d8d8;
-@define-color base_color #a8a8a8;
-@define-color darker_color #787878;
+@define-color lighter_color #ffffcc;
+@define-color base_color #888888;
+@define-color darker_color #666666;
+@define-color darker_color #666666;
 @define-color black_color #000000;
 @define-color scale_color #4b6983;
 
@@ -18,14 +19,14 @@
 /* Derived colors */
 /**********************************************/
 
-@define-color headerbar_bg_color @black_color;
-@define-color button_selected_bg_color @darker_color;
-@define-color text_selected_bg_color @darker_color;
-@define-color text_selected_fg_color @lighter_color;
-@define-color menuitem_selected_bg_color @lighter_color;
-@define-color menuitem_selected_fg_color @black_color;
-@define-color listitem_selected_bg_color @darker_color;
-@define-color listitem_selected_fg_color @lighter_color;
+@define-color headerbar_bg_color #000000;
+@define-color button_selected_bg_color #686868;
+@define-color text_selected_bg_color #686868;
+@define-color text_selected_fg_color #ffffff;
+@define-color menuitem_selected_bg_color #efeeed;
+@define-color menuitem_selected_fg_color #000000;
+@define-color listitem_selected_bg_color #686868;
+@define-color listitem_selected_fg_color #ffffff;
 @define-color text_view_bg @lighter_color; /* hack for gnome terminal 27 sep 2020 */
 
 /**********************************************/
