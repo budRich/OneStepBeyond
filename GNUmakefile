@@ -13,10 +13,12 @@ endif
 
 install_at := $(DESTDIR)$(SHARE_DIR)/$(NAME)
 icons_install_at := $(DESTDIR)$(PREFIX)/share/icons/amejga
+fonts_install_at := $(DESTDIR)$(PREFIX)/share/fonts
 
 sass_files     := $(wildcard src/sass/*.scss)
 gtk3_css       := theme/gtk-3.0/gtk.css
-icon_files     := $(wildcard src/amejga/*)
+icon_files     := src/amejga/index.theme $(wildcard src/amejga/img/*)
+font_files     := $(wildcard src/fonts/*)
 
 theme_files    := theme/gtk-2.0/gtkrc   \
                   theme/gtk-4.0/gtk.css \
@@ -26,6 +28,7 @@ theme_files    := theme/gtk-2.0/gtkrc   \
 
 installed_files = $(patsubst theme/%,$(install_at)/%,$(theme_files))
 installed_icons = $(patsubst src/amejga/%,$(icons_install_at)/%,$(icon_files))
+installed_fonts = $(patsubst src/fonts/%,$(fonts_install_at)/%,$(font_files))
 
 all: $(gtk3_css)
 
@@ -42,18 +45,18 @@ clean:
 $(installed_files): $(install_at)/%: theme/% | $(DESTDIR)$(SHARE_DIR)/
 	install -D -m644 $< $@
 
-$(installed_icons): $(icons_install_at)/%: src/amejga/% | $(DESTDIR)$(SHARE_DIR)/icons/amejga/
-	if [ -d $< ]; then \
-		mkdir -p $@ && cp -r $</* $@/; \
-	else \
-		install -D -m644 $< $@; \
-	fi
+$(installed_icons): $(icons_install_at)/%: src/amejga/% | $(DESTDIR)$(PREFIX)/share/icons/amejga
+	install -D -m644 $< $@
 
-install: all $(installed_files) $(installed_icons)
+$(installed_fonts): $(fonts_install_at)/%: src/fonts/% | $(DESTDIR)$(PREFIX)/share/fonts
+	install -D -m644 $< $@
+
+install: all $(installed_files) $(installed_icons) $(installed_fonts)
 
 uninstall:
 	rm -rf $(install_at)
 	rm -rf $(icons_install_at)
+	rm -rf $(fonts_install_at)
 
 # watch, restore and reload only works if xfconfd is running
 # and theme/gtk-3.0/css.gtk is "active" (install-dev)
@@ -67,7 +70,10 @@ install-dev: $(DESTDIR)$(SHARE_DIR)/
 $(DESTDIR)$(SHARE_DIR)/:
 	mkdir -p $@
 
-$(DESTDIR)$(SHARE_DIR)/icons/amejga/:
+$(DESTDIR)$(PREFIX)/share/icons/amejga:
+	mkdir -p $@
+
+$(DESTDIR)$(PREFIX)/share/fonts:
 	mkdir -p $@
 
 watch:
