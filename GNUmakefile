@@ -26,9 +26,12 @@ installed_files = $(patsubst theme/%,$(install_at)/%,$(theme_files))
 
 all: $(gtk3_css)
 
-$(gtk3_css): $(sass_files)
+$(gtk3_css): $(sass_files) | theme/gtk-3.0
 	sassc --style expanded src/sass/main.scss > $@
 	cp -f $@ src/gtk.css
+
+theme/gtk-3.0:
+	mkdir -p $@
 
 clean:
 	rm -f $(gtk3_css)
