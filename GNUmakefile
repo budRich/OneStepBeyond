@@ -12,9 +12,11 @@ else
 endif
 
 install_at := $(DESTDIR)$(SHARE_DIR)/$(NAME)
+icons_install_at := $(DESTDIR)$(PREFIX)/share/icons/amejga
 
 sass_files     := $(wildcard src/sass/*.scss)
 gtk3_css       := theme/gtk-3.0/gtk.css
+icon_files     := $(wildcard src/amejga/*)
 
 theme_files    := theme/gtk-2.0/gtkrc   \
                   theme/gtk-4.0/gtk.css \
@@ -23,6 +25,7 @@ theme_files    := theme/gtk-2.0/gtkrc   \
                   $(wildcard theme/img/*)
 
 installed_files = $(patsubst theme/%,$(install_at)/%,$(theme_files))
+installed_icons = $(patsubst src/amejga/%,$(icons_install_at)/%,$(icon_files))
 
 all: $(gtk3_css)
 
@@ -39,10 +42,18 @@ clean:
 $(installed_files): $(install_at)/%: theme/% | $(DESTDIR)$(SHARE_DIR)/
 	install -D -m644 $< $@
 
-install: all $(installed_files)
+$(installed_icons): $(icons_install_at)/%: src/amejga/% | $(DESTDIR)$(SHARE_DIR)/icons/amejga/
+	if [ -d $< ]; then \
+		mkdir -p $@ && cp -r $</* $@/; \
+	else \
+		install -D -m644 $< $@; \
+	fi
+
+install: all $(installed_files) $(installed_icons)
 
 uninstall:
 	rm -rf $(install_at)
+	rm -rf $(icons_install_at)
 
 # watch, restore and reload only works if xfconfd is running
 # and theme/gtk-3.0/css.gtk is "active" (install-dev)
@@ -54,6 +65,9 @@ install-dev: $(DESTDIR)$(SHARE_DIR)/
 	ln -fs "$(shell realpath theme)" "$(install_at)"
 
 $(DESTDIR)$(SHARE_DIR)/:
+	mkdir -p $@
+
+$(DESTDIR)$(SHARE_DIR)/icons/amejga/:
 	mkdir -p $@
 
 watch:
@@ -68,7 +82,8 @@ restore:
 
 reload:
 	$(reload_theme)
-	
+
+
 define reload_theme =
 	xfconf-query --create -c xsettings -p /Net/ThemeName -t string -s Adwaita
 	xfconf-query --create -c xsettings -p /Net/ThemeName -t string -s $(NAME)
